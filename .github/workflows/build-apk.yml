@@ -24,11 +24,12 @@ jobs:
         with:
           gradle-version: '8.9'
       - name: Build debug APK
+        working-directory: OriginHGSSAndroid
         run: gradle --no-daemon assembleDebug
       - name: Upload APK
         uses: actions/upload-artifact@v4
         with:
           name: OriginHGSS-debug-apk
-          path: app/build/outputs/apk/debug/app-debug.apk
+          path: OriginHGSSAndroid/app/build/outputs/apk/debug/app-debug.apk
           if-no-files-found: error
           retention-days: 14
